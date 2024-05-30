@@ -127,10 +127,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bankomat.cpp" />
+    <ClCompile Include="Konto.cpp" />
+    <ClCompile Include="Konto_Bankowe.cpp" />
     <ClCompile Include="SymulatorBankomatu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="konta.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bankomat.h" />
+    <ClInclude Include="Konto.h" />
+    <ClInclude Include="Konto_Bankowe.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
