@@ -29,6 +29,7 @@ bool Bankomat::czyIstnieje(const string& login, const string& haslo, const strin
 }
 
 void Bankomat::utworzKonto() {
+    system("cls");
     string login, haslo, pin;
     double saldo;
     cout << "Podaj login: ";
@@ -42,8 +43,11 @@ void Bankomat::utworzKonto() {
     if (!czyIstnieje(login, haslo, pin)) {
         Konto_Bankowe* noweKonto = new Konto_Bankowe(login, haslo, pin, saldo);
         konta.push_back(noweKonto);
+        system("cls");
         cout << "Konto zostalo utworzone." << endl;
         zapiszKontaDoPliku();
+        cout << "Nacisnij dowolny klawisz, aby kontynuowac..." << endl;
+        _getch();
     }
     else {
         cout << "B³¹d: Login, has³o lub PIN jest ju¿ u¿ywany." << endl;
