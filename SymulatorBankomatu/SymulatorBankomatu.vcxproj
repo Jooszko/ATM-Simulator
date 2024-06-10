@@ -130,6 +130,8 @@
     <ClCompile Include="Bankomat.cpp" />
     <ClCompile Include="Konto.cpp" />
     <ClCompile Include="Konto_Bankowe.cpp" />
+    <ClCompile Include="shell.c" />
+    <ClCompile Include="sqlite3.c" />
     <ClCompile Include="SymulatorBankomatu.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +141,8 @@
     <ClInclude Include="Bankomat.h" />
     <ClInclude Include="Konto.h" />
     <ClInclude Include="Konto_Bankowe.h" />
+    <ClInclude Include="sqlite3.h" />
+    <ClInclude Include="sqlite3ext.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
