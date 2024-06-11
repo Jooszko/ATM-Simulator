@@ -36,8 +36,15 @@ void Bankomat::utworzKonto() {
     system("cls");
     //DataBase dataBase;
 
-    string login, haslo, pin;
+    string login, haslo, pin, imie, nazwisko;
     double saldo;
+    int pesel;
+    cout << "Podaj imie: ";
+    cin >> imie;
+    cout << "Podaj nazwisko: ";
+    cin >> nazwisko;
+    cout << "Podaj pesel: ";
+    cin >> pesel;
     cout << "Podaj login: ";
     cin >> login;
     cout << "Podaj haslo: ";
@@ -48,7 +55,7 @@ void Bankomat::utworzKonto() {
     cin >> saldo;
 
     if (!czyIstnieje(login)) {
-        Konto_Bankowe* noweKonto = new Konto_Bankowe(login, haslo, pin, saldo);
+        Konto_Bankowe* noweKonto = new Konto_Bankowe(login, haslo, pin, saldo, imie, nazwisko, pesel);
         
         //konta.push_back(noweKonto);
 

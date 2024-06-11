@@ -2,6 +2,9 @@
 
 string Konto_Bankowe::getPin() const { return pin; }
 double Konto_Bankowe::getSaldo() const { return saldo; }
+string Konto_Bankowe::getImie() const { return imie; }
+string Konto_Bankowe::getNazwisko() const { return nazwisko; }
+int Konto_Bankowe::getPesel() const { return pesel; }
 
 void Konto_Bankowe::wplac(double kwota) {
 	saldo += kwota;

@@ -23,12 +23,15 @@ int main() {
     /*dataBase.createDb(dir);
     dataBase.createTable(dir);*/
 
-    //Konto_Bankowe kontonew("elo", "pass", "123", 50);
+    /*Konto_Bankowe* noweKonto = new Konto_Bankowe("login", "haslo", "12", 21, "imie", "nazwisko", 12);
 
 
     
-    //dataBase.insertData(dir);
+    dataBase.insertData(noweKonto);*/
+
+    //dataBase.createTable();
     
+
     dataBase.selectData();
 
     
@@ -59,12 +62,13 @@ int main() {
                 int wybor;
                 do {
                     system("cls");
+                    cout << "Witaj " << konto->getImie() << " " << konto->getNazwisko()<<endl << endl;
                     cout << "1. Wplac pieniadze\n";
                     cout << "2. Wyplac pieniadze\n";
                     cout << "3. Sprawdz saldo\n";
                     cout << "4. Zmien PIN\n";
                     cout << "5. Wyloguj\n";
-                    cout << "6. Zakoncz program\n";
+                    cout << "6. Zakoncz program\n\n";
                     cout << "Wybierz opcje: ";
                     cin >> wybor;
 
