@@ -27,15 +27,19 @@
     <ClCompile Include="Bankomat.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="shell.c">
+    <ClCompile Include="..\..\..\..\Downloads\sqlite3.c">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="sqlite3.c">
+    <ClCompile Include="DataBase.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="konta.csv">
+      <Filter>Pliki źródłowe</Filter>
+    </None>
+    <None Include="packages.config" />
+    <None Include="bankDatabase.bd">
       <Filter>Pliki źródłowe</Filter>
     </None>
   </ItemGroup>
@@ -49,10 +53,7 @@
     <ClInclude Include="Bankomat.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="sqlite3.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="sqlite3ext.h">
+    <ClInclude Include="DataBase.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

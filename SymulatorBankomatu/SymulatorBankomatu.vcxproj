@@ -127,7 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Downloads\sqlite3.c" />
     <ClCompile Include="Bankomat.cpp" />
+    <ClCompile Include="DataBase.cpp" />
     <ClCompile Include="Konto.cpp" />
     <ClCompile Include="Konto_Bankowe.cpp" />
     <ClCompile Include="shell.c" />
@@ -135,10 +137,13 @@
     <ClCompile Include="SymulatorBankomatu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bankDatabase.bd" />
     <None Include="konta.csv" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bankomat.h" />
+    <ClInclude Include="DataBase.h" />
     <ClInclude Include="Konto.h" />
     <ClInclude Include="Konto_Bankowe.h" />
     <ClInclude Include="sqlite3.h" />
@@ -146,5 +151,12 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\sqlite3_c_plus_plus.1.0.3\build\native\sqlite3_c_plus_plus.targets" Condition="Exists('..\packages\sqlite3_c_plus_plus.1.0.3\build\native\sqlite3_c_plus_plus.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ten projekt zawiera odwołania do pakietów NuGet, których nie ma na tym komputerze. Użyj przywracania pakietów NuGet, aby je pobrać. Aby uzyskać więcej informacji, zobacz http://go.microsoft.com/fwlink/?LinkID=322105. Brakujący plik: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\sqlite3_c_plus_plus.1.0.3\build\native\sqlite3_c_plus_plus.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sqlite3_c_plus_plus.1.0.3\build\native\sqlite3_c_plus_plus.targets'))" />
+  </Target>
 </Project>
