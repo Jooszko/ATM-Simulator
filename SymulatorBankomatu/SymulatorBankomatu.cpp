@@ -61,14 +61,15 @@ int main() {
             if (konto) {
                 int wybor;
                 do {
-                    system("cls");
+                    //system("cls");
                     cout << "Witaj " << konto->getImie() << " " << konto->getNazwisko()<<endl << endl;
                     cout << "1. Wplac pieniadze\n";
                     cout << "2. Wyplac pieniadze\n";
                     cout << "3. Sprawdz saldo\n";
-                    cout << "4. Zmien PIN\n";
-                    cout << "5. Wyloguj\n";
-                    cout << "6. Zakoncz program\n\n";
+                    cout << "4. Zmien Haslo\n";
+                    cout << "5. Zmien PIN\n";
+                    cout << "6. Wyloguj\n";
+                    cout << "7. Zakoncz program\n\n";
                     cout << "Wybierz opcje: ";
                     cin >> wybor;
 
@@ -103,6 +104,20 @@ int main() {
                         break;
                     }
                     case 4: {
+                        string stareHaslo, noweHaslo;
+                        system("cls");
+                        cout << "Podaj stare hasło: ";
+                        cin >> stareHaslo;
+                        cout << "Podaj nowe hasło: ";
+                        cin >> noweHaslo;
+
+                        konto->zmienHaslo(stareHaslo, noweHaslo);
+                        konto->setHaslo(konto->getHaslo());
+                        bankomat.zapiszKontaDoPliku();
+
+                        break;
+                    }
+                    case 5: {
                         string staryPin, nowyPin;
                         system("cls");
                         cout << "Podaj stary PIN: ";
@@ -113,14 +128,14 @@ int main() {
                         bankomat.zapiszKontaDoPliku();
                         break;
                     }
-                    case 5: {
+                    case 6: {
                         system("cls");
                         cout << "Wylogowano." << endl;
                         cout << "Nacisnij dowolny klawisz, aby kontynuowac..." << endl;
                         _getch();
                         break;
                     }
-                    case 6: {
+                    case 7: {
                         system("cls");
                         cout << "Zakonczono program." << endl;
                         return 0;

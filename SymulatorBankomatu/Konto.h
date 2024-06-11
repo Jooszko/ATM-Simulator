@@ -16,6 +16,6 @@ class Konto {
 		bool autoryzacja(const string& login, const string& haslo);
 
 		string getLogin() const;
-		string getHaslo() const;
+		string getHasloKonto() const;
 	};
 

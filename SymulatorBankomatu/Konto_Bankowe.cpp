@@ -1,6 +1,7 @@
 #include "Konto_Bankowe.h"
 
 string Konto_Bankowe::getPin() const { return pin; }
+string Konto_Bankowe::getHaslo() const { return haslo; }
 double Konto_Bankowe::getSaldo() const { return saldo; }
 string Konto_Bankowe::getImie() const { return imie; }
 string Konto_Bankowe::getNazwisko() const { return nazwisko; }
@@ -36,6 +37,26 @@ void Konto_Bankowe::zmienPin(const string& staryPin, const string& nowyPin) {
 		else {
 			pin = nowyPin;
 			cout << "PIN zosta³ pomyœlnie zmieniony." << endl;
+		}
+	}
+	else {
+		cout << "B³¹d: podano nieprawid³owy stary PIN." << endl;
+	}
+}
+
+void Konto_Bankowe::setHaslo(string hasloNew) {
+	Konto::haslo = hasloNew;
+}
+
+void Konto_Bankowe::zmienHaslo(const string& stareHaslo, const string& noweHaslo) {
+	cout << haslo<< " aaa";
+	if (stareHaslo == haslo) {
+		if (stareHaslo == noweHaslo) {
+			cout << "B³¹d: nowe has³o nie mo¿e byæ takie same jak stare has³o." << endl;
+		}
+		else {
+			haslo = noweHaslo;
+			cout << "Haslo zosta³o pomyœlnie zmienione." << endl;
 		}
 	}
 	else {

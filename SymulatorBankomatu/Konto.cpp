@@ -7,4 +7,4 @@ bool Konto::autoryzacja(const string& login, const string& haslo) {
 }
 
 string Konto::getLogin() const { return login; }
-string Konto::getHaslo() const { return haslo; }
+string Konto::getHasloKonto() const { return haslo; }
