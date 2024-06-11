@@ -2,7 +2,8 @@
 #include <vector>
 #include "Konto_Bankowe.h"
 
-const char* dir = "c:\\Users\\jonas\\Desktop\\ProjektBankomat\\ATM-Simulator\\SymulatorBankomatu\\bankDatabase.bd";
+//const char* dir = "c:\\Users\\jonas\\Desktop\\ProjektBankomat\\ATM-Simulator\\SymulatorBankomatu\\bankDatabase.bd";
+const char* dir = "bankDatabase.bd";
 //vector<char**> uzytkownicy;
 vector<Konto_Bankowe*> uzytkownicy;
 
