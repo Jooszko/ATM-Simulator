@@ -2,13 +2,15 @@
 #include <iostream>
 #include <vector>
 #include "Konto_Bankowe.h"
+#include "DataBase.h"
 
 
 using namespace std;
 
 class Bankomat {
-private:
+protected:
     vector<Konto_Bankowe*> konta;
+    DataBase dataBase;
 public:
     ~Bankomat();
 
@@ -16,7 +18,7 @@ public:
 
     Konto_Bankowe* zaloguj(const string& login, const string& haslo);
 
-    bool czyIstnieje(const string& login, const string& haslo, const string& pin);
+    bool czyIstnieje(const string& login);
 
     void utworzKonto();
 

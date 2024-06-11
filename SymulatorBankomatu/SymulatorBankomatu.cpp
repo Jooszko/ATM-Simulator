@@ -7,12 +7,30 @@
 #include "Konto.h"
 #include "Konto_Bankowe.h"
 #include "Bankomat.h"
+#include "DataBase.h"
+
+#include <stdio.h>
+#include <sqlite3.h>
 
 using namespace std;
 
 int main() {
-    Bankomat bankomat;
-    bankomat.wczytajKontaZPliku();
+
+    //database add
+    DataBase dataBase;
+    //sqlite3* DB;
+    /*dataBase.createDb(dir);
+    dataBase.createTable(dir);*/
+
+    //Konto_Bankowe kontonew("elo", "pass", "123", 50);
+
+
+    
+    //dataBase.insertData(dir);
+    
+    dataBase.selectData();
+
+    
 
     while (true) {
         int wybor;
@@ -21,6 +39,9 @@ int main() {
         cout << "3. Zakoncz program\n";
         cout << "Wybierz opcje: ";
         cin >> wybor;
+
+        Bankomat bankomat;
+        bankomat.wczytajKontaZPliku();
 
         switch (wybor) {
         case 1: {
@@ -112,3 +133,4 @@ int main() {
 
     return 0;
 }
+

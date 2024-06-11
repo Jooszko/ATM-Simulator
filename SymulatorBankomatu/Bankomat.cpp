@@ -1,4 +1,6 @@
 #include "Bankomat.h"
+#include "sqlite3.h"
+//#include "DataBase.h"
 
 Bankomat::~Bankomat() {
     for (auto konto : konta) {
@@ -19,16 +21,20 @@ Konto_Bankowe* Bankomat::zaloguj(const string& login, const string& haslo) {
     return nullptr;
 }
 
-bool Bankomat::czyIstnieje(const string& login, const string& haslo, const string& pin) {
+bool Bankomat::czyIstnieje(const string& login) {
+
     for (auto& konto : konta) {
-        if (konto->getLogin() == login || konto->getHaslo() == haslo || konto->getPin() == pin) {
+        if (konto->getLogin() == login) {
             return true;
         }
     }
     return false;
+
 }
 
 void Bankomat::utworzKonto() {
+    //DataBase dataBase;
+
     string login, haslo, pin;
     double saldo;
     cout << "Podaj login: ";
@@ -39,29 +45,41 @@ void Bankomat::utworzKonto() {
     cin >> pin;
     cout << "Podaj saldo poczatkowe: ";
     cin >> saldo;
-    if (!czyIstnieje(login, haslo, pin)) {
+
+    if (!czyIstnieje(login)) {
         Konto_Bankowe* noweKonto = new Konto_Bankowe(login, haslo, pin, saldo);
-        konta.push_back(noweKonto);
-        cout << "Konto zostalo utworzone." << endl;
-        zapiszKontaDoPliku();
+        
+        //konta.push_back(noweKonto);
+
+        dataBase.insertData(noweKonto);
+        //zapiszKontaDoPliku();
     }
     else {
-        cout << "B³¹d: Login, has³o lub PIN jest ju¿ u¿ywany." << endl;
+        cout << "B³¹d: Login jest ju¿ u¿ywany." << endl;
     }
 }
 
 void Bankomat::zapiszKontaDoPliku() {
-    ofstream plik("konta.csv");
+    /*ofstream plik("konta.csv");
     for (auto& konto : konta) {
         plik << konto->getLogin() << "," << konto->getHaslo() << "," << konto->getPin() << "," << konto->getSaldo() << "\n";
     }
-    plik.close();
+    plik.close();*/
+
+    //DataBase dataBase;
+
+    dataBase.updateData(konta);
 }
 
 void Bankomat::wczytajKontaZPliku() {
-    ifstream plik("konta.csv");
-    string linia;
-    while (getline(plik, linia)) {
+
+    //DataBase dataBase;
+    konta = dataBase.data();
+
+    /*ifstream plik("konta.csv");
+    string linia;*/
+
+    /*while (getline(plik, linia)) {
         stringstream ss(linia);
         string login, haslo, pin;
         double saldo;
@@ -72,5 +90,5 @@ void Bankomat::wczytajKontaZPliku() {
         Konto_Bankowe* konto = new Konto_Bankowe(login, haslo, pin, saldo);
         konta.push_back(konto);
     }
-    plik.close();
+    plik.close();*/
 }
