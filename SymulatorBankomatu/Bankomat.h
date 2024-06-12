@@ -16,6 +16,7 @@ public:
     ~Bankomat();
 
     void dodajKonto(Konto_Bankowe* konto);
+    void usunKonto(Konto_Bankowe* konto);
 
     Konto_Bankowe* zaloguj(const string& login, const string& haslo);
 

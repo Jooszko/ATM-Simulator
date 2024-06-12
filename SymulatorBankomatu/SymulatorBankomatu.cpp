@@ -17,6 +17,8 @@ using namespace std;
 
 int main() {
 
+    setlocale(LC_CTYPE, "Polish");
+
     //database add
     DataBase dataBase;
     //sqlite3* DB;
@@ -41,7 +43,7 @@ int main() {
         system("cls");
         cout << "1. Zaloguj\n";
         cout << "2. Utworz konto\n";
-        cout << "3. Zakoncz program\n";
+        cout << "3. Zakończ program\n";
         cout << "Wybierz opcje: ";
         cin >> wybor;
 
@@ -68,8 +70,9 @@ int main() {
                     cout << "3. Sprawdz saldo\n";
                     cout << "4. Zmien Haslo\n";
                     cout << "5. Zmien PIN\n";
-                    cout << "6. Wyloguj\n";
-                    cout << "7. Zakoncz program\n\n";
+                    cout << "6. Usun konto\n";
+                    cout << "7. Wyloguj\n";
+                    cout << "8. Zakoncz program\n\n";
                     cout << "Wybierz opcje: ";
                     cin >> wybor;
 
@@ -129,13 +132,29 @@ int main() {
                         break;
                     }
                     case 6: {
+                        char decyzja;
+                        do {
+                            cout << "Czy na pewno chcesz usunąć konto? (t/n): ";
+                            cin >> decyzja;
+                        } while (decyzja!='t' && decyzja!='n');
+                        if (decyzja == 't') {
+                            bankomat.usunKonto(konto);
+                            bankomat.zapiszKontaDoPliku();
+                            cout << "Usunięto konto." << endl;
+                            cout << "Nacisnij dowolny klawisz, aby kontynuowac..." << endl;
+                            _getch();
+                        }
+                   
+                        break;
+                    }
+                    case 7: {
                         system("cls");
                         cout << "Wylogowano." << endl;
                         cout << "Nacisnij dowolny klawisz, aby kontynuowac..." << endl;
                         _getch();
                         break;
                     }
-                    case 7: {
+                    case 8: {
                         system("cls");
                         cout << "Zakonczono program." << endl;
                         return 0;
@@ -148,7 +167,7 @@ int main() {
                         break;
                     }
                     }
-                } while (wybor != 5);
+                } while (wybor != 6 && wybor != 5);
             }
             else {
                 cout << "Blad: nieprawidlowe dane logowania." << endl;

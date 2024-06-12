@@ -12,6 +12,10 @@ void Bankomat::dodajKonto(Konto_Bankowe* konto) {
     konta.push_back(konto);
 }
 
+void Bankomat::usunKonto(Konto_Bankowe* konto) {
+    konta.erase(std::remove(konta.begin(), konta.end(), konto), konta.end());
+}
+
 Konto_Bankowe* Bankomat::zaloguj(const string& login, const string& haslo) {
     for (auto& konto : konta) {
         if (konto->autoryzacja(login, haslo)) {

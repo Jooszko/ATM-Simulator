@@ -119,33 +119,35 @@ vector<Konto_Bankowe*> DataBase::data() {
 };
 
 int DataBase::updateData(vector<Konto_Bankowe*> konta) {
+    
+    if (konta.size() != 0) {
+        sqlite3* DB;
 
-    sqlite3* DB;
+        char* messaggeError;
 
-    char* messaggeError;
+        int exit = sqlite3_open(dir, &DB);
 
-    int exit = sqlite3_open(dir, &DB);
+        string sqlDelete("DELETE FROM USERS");
 
-    string sqlDelete("DELETE FROM USERS");
+        exit = sqlite3_exec(DB, sqlDelete.c_str(), NULL, 0, &messaggeError);
 
-    exit = sqlite3_exec(DB, sqlDelete.c_str(), NULL, 0, &messaggeError);
+        if (exit != SQLITE_OK) {
+            cerr << "Blad usowania danych podczas aktualizacji" << endl;
+            sqlite3_free(messaggeError);
+        }
+        else {
+        
+            for (auto& konto : konta) {
 
-    if (exit != SQLITE_OK) {
-        cerr << "Blad usowania danych podczas aktualizacji" << endl;
-        sqlite3_free(messaggeError);
-    }
-    else {
+                //string sqlAdd("INSERT INTO USERS (LOGIN, PASSWORD, PASS_SALT, PIN, BALANCE) VALUES ('" + konto->getLogin() + "', '" + konto->getHaslo() + "', 'salt', " + konto->getPin() + ", " + to_string(konto->getSaldo()) + ");");
+                string sqlAdd("INSERT INTO USERS (LOGIN, PASSWORD, PASS_SALT, PIN, BALANCE, IMIE, NAZWISKO, PESEL) VALUES ('" + konto->getLogin() + "', '" + konto->getHasloKonto() + "', 'salt', " + konto->getPin() + ", " + to_string(konto->getSaldo()) + ", '" + konto->getImie() + "', '" + konto->getNazwisko() + "', " + to_string(konto->getPesel()) + ");");
+                exit = sqlite3_exec(DB, sqlAdd.c_str(), NULL, 0, &messaggeError);
 
-        for (auto& konto : konta) {
-
-            //string sqlAdd("INSERT INTO USERS (LOGIN, PASSWORD, PASS_SALT, PIN, BALANCE) VALUES ('" + konto->getLogin() + "', '" + konto->getHaslo() + "', 'salt', " + konto->getPin() + ", " + to_string(konto->getSaldo()) + ");");
-            string sqlAdd("INSERT INTO USERS (LOGIN, PASSWORD, PASS_SALT, PIN, BALANCE, IMIE, NAZWISKO, PESEL) VALUES ('" + konto->getLogin() + "', '" + konto->getHasloKonto() + "', 'salt', " + konto->getPin() + ", " + to_string(konto->getSaldo()) + ", '" + konto->getImie() + "', '" + konto->getNazwisko() + "', " + to_string(konto->getPesel()) + ");");
-            exit = sqlite3_exec(DB, sqlAdd.c_str(), NULL, 0, &messaggeError);
-
-            if (exit != SQLITE_OK) {
-                cerr << "Blad dodania danych podczas aktualizacji" << endl;
-                sqlite3_free(messaggeError);
-                break;
+                if (exit != SQLITE_OK) {
+                    cerr << "Blad dodania danych podczas aktualizacji" << endl;
+                    sqlite3_free(messaggeError);
+                    break;
+                }
             }
         }
     }
