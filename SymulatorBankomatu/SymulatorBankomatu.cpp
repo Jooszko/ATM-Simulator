@@ -138,7 +138,13 @@ int main() {
                         cout << "Podaj stary PIN: ";
                         cin >> staryPin;
                         cout << "Podaj nowy PIN: ";
-                        cin >> nowyPin;
+                        do {
+                            cin >> nowyPin;
+                            if (nowyPin.length() != 4) {
+                                cout << "Blad: nieprawidaowa dlugosc numeru  PIN!" << endl;
+                            }
+
+                        } while (nowyPin.length() != 4);
                         konto->zmienPin(staryPin, nowyPin);
                         bankomat.zapiszKontaDoPliku();
                         cout << endl << "Nacisnij dowolny klawisz, aby kontynuować..." << endl;
