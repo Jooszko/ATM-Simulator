@@ -49,7 +49,7 @@ int main() {
 
             cout << "Podaj login: ";
             cin >> login;
-            cout << "Podaj hasło: ";
+            cout << "Podaj haslo: ";
             cin >> haslo;
 
             Konto_Bankowe* konto = bankomat.zaloguj(login, haslo);
