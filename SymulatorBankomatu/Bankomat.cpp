@@ -78,7 +78,7 @@ void Bankomat::utworzKonto() {
         Konto_Bankowe* noweKonto = new Konto_Bankowe(login, pass_hash, pass_salt, pin, saldo, imie, nazwisko, pesel);
 
         dataBase.insertData(noweKonto);
-        cout << endl;
+        
     }
     else {
         cout << "Błąd: Login jest już używany." << endl;

@@ -30,6 +30,8 @@ int main() {
     while (true) {
         int wybor;
         system("cls");
+        cout << "[BANKOMAT]" << endl << endl;
+
         cout << "1. Zaloguj\n";
         cout << "2. Utwórz konto\n";
         cout << "3. Zakończ program\n\n";
@@ -43,6 +45,8 @@ int main() {
         case 1: {
             string login, haslo;
             system("cls");
+            cout << "[BANKOMAT]" << endl << endl;
+
             cout << "Podaj login: ";
             cin >> login;
             cout << "Podaj hasło: ";
@@ -58,6 +62,8 @@ int main() {
                 int wybor;
                 do {
                     system("cls");
+                    cout << "[BANKOMAT]" << endl << endl;
+
                     cout << "Witaj " << konto->getImie() << " " << konto->getNazwisko()<<endl << endl;
                     cout << "1. Wplać pieniadze\n";
                     cout << "2. Wyplać pieniadze\n";
@@ -74,6 +80,8 @@ int main() {
                     case 1: {
                         double kwota;
                         system("cls");
+                        cout << "[BANKOMAT]" << endl << endl;
+
                         cout << "Podaj kwote do wplaty: ";
                         cin >> kwota;
                         system("cls");
@@ -86,6 +94,8 @@ int main() {
                     case 2: {
                         double kwota;
                         system("cls");
+                        cout << "[BANKOMAT]" << endl << endl;
+
                         cout << "Podaj kwote do wyplaty: ";
                         cin >> kwota;
                         if (konto->wyplac(kwota)) {
@@ -96,6 +106,8 @@ int main() {
                     }
                     case 3: {
                         system("cls");
+                        cout << "[BANKOMAT]" << endl << endl;
+
                         konto->sprawdzSaldo();
                         cout << endl << "Nacisnij dowolny klawisz, aby kontynuować..." << endl;
                         _getch();
@@ -104,6 +116,8 @@ int main() {
                     case 4: {
                         string stareHaslo, noweHaslo;
                         system("cls");
+                        cout << "[BANKOMAT]" << endl << endl;
+
                         cout << "Podaj stare hasło: ";
                         cin >> stareHaslo;
                         cout << "Podaj nowe hasło: ";
@@ -119,6 +133,8 @@ int main() {
                     case 5: {
                         string staryPin, nowyPin;
                         system("cls");
+                        cout << "[BANKOMAT]" << endl << endl;
+
                         cout << "Podaj stary PIN: ";
                         cin >> staryPin;
                         cout << "Podaj nowy PIN: ";
@@ -132,6 +148,9 @@ int main() {
                     case 6: {
                         char decyzja;
                         do {
+                            system("cls");
+                            cout << "[BANKOMAT]" << endl << endl;
+
                             cout << "Czy na pewno chcesz usunąć konto? (t/n): ";
                             cin >> decyzja;
                         } while (decyzja!='t' && decyzja!='n');
@@ -147,6 +166,8 @@ int main() {
                     }
                     case 7: {
                         system("cls");
+                        cout << "[BANKOMAT]" << endl << endl;
+
                         cout << "Wylogowano." << endl;
                         cout << endl << "Nacisnij dowolny klawisz, aby kontynuować..." << endl;
                         _getch();
@@ -159,6 +180,8 @@ int main() {
                     }
                     default: {
                         system("cls");
+                        cout << "[BANKOMAT]" << endl << endl;
+
                         cout << "Nieznana opcja." << endl << endl;
                         cout << "Nacisnij dowolny klawisz, aby kontynuować..." << endl;
                         _getch();
@@ -177,6 +200,8 @@ int main() {
         }
         case 2: {
             system("cls");
+            cout << "[BANKOMAT]" << endl << endl;
+
             bankomat.utworzKonto();
             cout <<endl<< "Naciśnij dowolny klawisz, aby kontynuować..." << endl;
             _getch();
