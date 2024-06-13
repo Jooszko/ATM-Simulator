@@ -137,7 +137,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bankDatabase.bd" />
-    <None Include="konta.csv" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

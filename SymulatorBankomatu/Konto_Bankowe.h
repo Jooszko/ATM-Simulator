@@ -17,6 +17,7 @@ class Konto_Bankowe : public Konto {
 		string imie;
 		string nazwisko;
 		int pesel;
+
 	public:
 	    Konto_Bankowe(const string& login, const string& haslo, const string& salt, const string& pin, double saldo, const string& imie, const string& nazwisko, const int& pesel): Konto(login, haslo, salt), haslo(haslo), salt(salt), pin(pin), saldo(saldo), imie(imie), nazwisko(nazwisko), pesel(pesel) {}
 	

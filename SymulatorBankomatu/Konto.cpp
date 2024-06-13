@@ -2,10 +2,6 @@
 #include <iostream>
 #include "Hash.h"
 
-//Konto::~Konto() {
-//	delete this;
-//}
-
 bool Konto::autoryzacja(const string& login, const string& haslo) {
 
 	string pass_hash = Hash::generateHash(haslo, this->salt);

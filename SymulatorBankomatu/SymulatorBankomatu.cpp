@@ -178,6 +178,8 @@ int main() {
         case 2: {
             system("cls");
             bankomat.utworzKonto();
+            cout <<endl<< "Naciśnij dowolny klawisz, aby kontynuować..." << endl;
+            _getch();
             break;
         }
         case 3: {

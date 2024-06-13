@@ -12,8 +12,6 @@ class Konto {
 	public:
 	    Konto(const string& login, const string& haslo, const string& salt): login(login), haslo(haslo), salt(salt) {}
 
-		/*~Konto(){}*/
-	
 	    virtual ~Konto() {}
 	
 		bool autoryzacja(const string& login, const string& haslo);

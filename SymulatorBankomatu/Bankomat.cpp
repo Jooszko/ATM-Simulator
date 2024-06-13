@@ -1,9 +1,6 @@
 #include "Bankomat.h"
 #include "sqlite3.h"
 #include <string>
-//#include <iostream>
-//#include "DataBase.h"
-
 #include "Hash.h"
 
 Bankomat::~Bankomat() {
@@ -46,12 +43,10 @@ void Bankomat::utworzKonto() {
     double saldo;
     long long pesel;
     string peselStr;
-    //string numStr;
     cout << "Podaj imie: ";
     cin >> imie;
     cout << "Podaj nazwisko: ";
     cin >> nazwisko;
-    //do {
     do {
         cout << "Podaj pesel: ";
         cin >> pesel;
@@ -59,10 +54,6 @@ void Bankomat::utworzKonto() {
         if (peselStr.length() != 11)
            cout << "Blad: nieprawidaowa dlugosc numeru  PESEL!" << endl;
     } while (peselStr.length() != 11);
-        //cout << endl;
-        /*numStr = std::to_string(pesel);
-        cout << numStr.length();*/
-    //} while (numStr.length()!=10);
     cout << "Podaj login: ";
     cin >> login;
     cout << "Podaj haslo: ";
@@ -87,9 +78,10 @@ void Bankomat::utworzKonto() {
         Konto_Bankowe* noweKonto = new Konto_Bankowe(login, pass_hash, pass_salt, pin, saldo, imie, nazwisko, pesel);
 
         dataBase.insertData(noweKonto);
+        cout << endl;
     }
     else {
-        cout << "B��d: Login jest ju� u�ywany." << endl;
+        cout << "Błąd: Login jest już używany." << endl;
     }
 }
 

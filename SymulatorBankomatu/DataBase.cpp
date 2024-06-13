@@ -84,7 +84,7 @@ int DataBase::insertData(Konto_Bankowe* noweKonto) {
         sqlite3_free(messaggeError);
     }
     else {
-        cout << "Konto zostalo utworzone." << endl;
+        cout << endl<< "Konto zostalo utworzone." << endl;
     }
 
     return 0;
