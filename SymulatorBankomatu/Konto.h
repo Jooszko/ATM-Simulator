@@ -8,8 +8,9 @@ class Konto {
 	protected:
 	    string login;
 	    string haslo;
+		string salt;
 	public:
-	    Konto(const string& login, const string& haslo): login(login), haslo(haslo) {}
+	    Konto(const string& login, const string& haslo, const string& salt): login(login), haslo(haslo), salt(salt) {}
 
 		/*~Konto(){}*/
 	

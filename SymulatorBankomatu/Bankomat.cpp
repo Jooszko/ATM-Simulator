@@ -3,6 +3,8 @@
 //#include <iostream>
 //#include "DataBase.h"
 
+#include "Hash.h"
+
 Bankomat::~Bankomat() {
     for (auto konto : konta) {
         delete konto;
@@ -38,26 +40,16 @@ bool Bankomat::czyIstnieje(const string& login) {
 }
 
 void Bankomat::utworzKonto() {
-    //system("cls");
-    //DataBase dataBase;
 
     string login, haslo, pin, imie, nazwisko;
     double saldo;
     int pesel;
-    //string numStr;
     cout << "Podaj imie: ";
     cin >> imie;
     cout << "Podaj nazwisko: ";
     cin >> nazwisko;
-    //do {
-        cout << "Podaj pesel: ";
-        cin >> pesel;
-        //cout << endl;
-        /*numStr = std::to_string(pesel);
-        cout << numStr.length();*/
-
-
-    //} while (numStr.length()!=10);
+    cout << "Podaj pesel: ";
+    cin >> pesel;
     cout << "Podaj login: ";
     cin >> login;
     cout << "Podaj haslo: ";
@@ -67,13 +59,16 @@ void Bankomat::utworzKonto() {
     cout << "Podaj saldo poczatkowe: ";
     cin >> saldo;
 
+    
     if (!czyIstnieje(login)) {
-        Konto_Bankowe* noweKonto = new Konto_Bankowe(login, haslo, pin, saldo, imie, nazwisko, pesel);
+
+        string pass_salt = Hash::generateSalt(10);
+        string pass_hash = Hash::generateHash(haslo, pass_salt);
         
-        //konta.push_back(noweKonto);
+
+        Konto_Bankowe* noweKonto = new Konto_Bankowe(login, pass_hash, pass_salt, pin, saldo, imie, nazwisko, pesel);
 
         dataBase.insertData(noweKonto);
-        //zapiszKontaDoPliku();
     }
     else {
         cout << "B��d: Login jest ju� u�ywany." << endl;
@@ -81,35 +76,12 @@ void Bankomat::utworzKonto() {
 }
 
 void Bankomat::zapiszKontaDoPliku() {
-    /*ofstream plik("konta.csv");
-    for (auto& konto : konta) {
-        plik << konto->getLogin() << "," << konto->getHaslo() << "," << konto->getPin() << "," << konto->getSaldo() << "\n";
-    }
-    plik.close();*/
-
-    //DataBase dataBase;
 
     dataBase.updateData(konta);
 }
 
 void Bankomat::wczytajKontaZPliku() {
 
-    //DataBase dataBase;
     konta = dataBase.data();
 
-    /*ifstream plik("konta.csv");
-    string linia;*/
-
-    /*while (getline(plik, linia)) {
-        stringstream ss(linia);
-        string login, haslo, pin;
-        double saldo;
-        getline(ss, login, ',');
-        getline(ss, haslo, ',');
-        getline(ss, pin, ',');
-        ss >> saldo;
-        Konto_Bankowe* konto = new Konto_Bankowe(login, haslo, pin, saldo);
-        konta.push_back(konto);
-    }
-    plik.close();*/
 }

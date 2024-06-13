@@ -2,6 +2,7 @@
 
 string Konto_Bankowe::getPin() const { return pin; }
 string Konto_Bankowe::getHaslo() const { return haslo; }
+string Konto_Bankowe::getSalt() const { return salt; }
 double Konto_Bankowe::getSaldo() const { return saldo; }
 string Konto_Bankowe::getImie() const { return imie; }
 string Konto_Bankowe::getNazwisko() const { return nazwisko; }
@@ -45,21 +46,27 @@ void Konto_Bankowe::zmienPin(const string& staryPin, const string& nowyPin) {
 }
 
 void Konto_Bankowe::setHaslo(string hasloNew) {
+
 	Konto::haslo = hasloNew;
+
 }
 
 void Konto_Bankowe::zmienHaslo(const string& stareHaslo, const string& noweHaslo) {
-	cout << haslo<< " aaa";
-	if (stareHaslo == haslo) {
-		if (stareHaslo == noweHaslo) {
+
+	string pass_hash_old_user = Hash::generateHash(stareHaslo, this->salt);
+
+	if (pass_hash_old_user == haslo) {
+		string pass_hash_new_user = Hash::generateHash(noweHaslo, this->salt);
+
+		if (haslo == pass_hash_new_user) {
 			cout << "B³¹d: nowe has³o nie mo¿e byæ takie same jak stare has³o." << endl;
 		}
 		else {
-			haslo = noweHaslo;
+			haslo = pass_hash_new_user;
 			cout << "Haslo zosta³o pomyœlnie zmienione." << endl;
 		}
 	}
 	else {
-		cout << "B³¹d: podano nieprawid³owy stary PIN." << endl;
+		cout << "B³¹d: podano nieprawid³owe stare has³o." << endl;
 	}
 }

@@ -15,6 +15,8 @@ private:
 
     //vector<char**> uzytkownicy;
     char** u¿ytkownik;
+    /*static string generateSalt(size_t length);
+    static string generateHash(const string& password, const string& salt);*/
 
 public:
     /*static int createDb(const char* s);
@@ -30,7 +32,7 @@ public:
     static int callback(void* NotUsed, int argc, char** argv, char** azColName);
     vector<Konto_Bankowe*> data();
     static int updateData(vector<Konto_Bankowe*> noweKonto);
-    
+    /*bool validateCredentials(string& username, string& password);*/
 
 
 
