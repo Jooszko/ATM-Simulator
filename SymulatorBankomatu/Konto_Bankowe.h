@@ -22,7 +22,6 @@ class Konto_Bankowe : public Konto {
 		string getPin() const;
 		string getHaslo() const;
 		void setHaslo(string hasloNew);
-	    //double getSaldo() const { return saldo; }
 		double getSaldo() const;
 		string getImie() const;
 		string getNazwisko() const;

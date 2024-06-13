@@ -1,25 +1,31 @@
 #include "DataBase.h"
 #include <vector>
 #include "Konto_Bankowe.h"
+#include <iostream>
+#include <cstdio>
+
 
 //const char* dir = "c:\\Users\\jonas\\Desktop\\ProjektBankomat\\ATM-Simulator\\SymulatorBankomatu\\bankDatabase.bd";
 const char* dir = "bankDatabase.bd";
-//vector<char**> uzytkownicy;
+const std::string databaseFilename = "bankDatabase.bd";
+
 vector<Konto_Bankowe*> uzytkownicy;
 
-//int DataBase::createDb(const char* s) {
 int DataBase::createDb() {
-    sqlite3* DB;
-    int exit = 0;
+    FILE* file;
+    errno_t err = fopen_s(&file, databaseFilename.c_str(), "r");
+    if (err == 0 && file != nullptr) {
+        fclose(file);
+        sqlite3* DB;
+        int exit = 0;
 
-    exit = sqlite3_open(dir, &DB);
+        exit = sqlite3_open(dir, &DB);
 
-    sqlite3_close(DB);
-
+        sqlite3_close(DB);
+    }
     return 0;
 };
 
-//int DataBase::createTable(const char* s) {
 int DataBase::createTable() {
 
     sqlite3* DB;
@@ -70,6 +76,7 @@ int DataBase::insertData(Konto_Bankowe* noweKonto) {
     char* messaggeError;
 
     int exit = sqlite3_open(dir, &DB);
+
 
     string sql("INSERT INTO USERS (LOGIN, PASSWORD, PASS_SALT, PIN, BALANCE, IMIE, NAZWISKO, PESEL) VALUES ('" + noweKonto->getLogin() + "', '"+ noweKonto->getHasloKonto() + "', 'salt', " + noweKonto->getPin() + ", " + to_string(noweKonto->getSaldo()) + ", '" + noweKonto->getImie() + "', '" + noweKonto->getNazwisko() + "', " + to_string(noweKonto->getPesel()) + ");");
     //string sql("INSERT INTO USERS (LOGIN, PASSWORD, PASS_SALT, PIN, BALANCE, IMIE, NAZWISKO, PESEL) VALUES ('" + noweKonto->getLogin() + "', '" + noweKonto->getHaslo() + "', 'salt', " + noweKonto->getPin() + ", " + to_string(noweKonto->getSaldo()) + ", 'jo', 'kubaczka', 124);");

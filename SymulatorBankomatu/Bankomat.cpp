@@ -1,5 +1,6 @@
 #include "Bankomat.h"
 #include "sqlite3.h"
+//#include <iostream>
 //#include "DataBase.h"
 
 Bankomat::~Bankomat() {
@@ -37,18 +38,26 @@ bool Bankomat::czyIstnieje(const string& login) {
 }
 
 void Bankomat::utworzKonto() {
-    system("cls");
+    //system("cls");
     //DataBase dataBase;
 
     string login, haslo, pin, imie, nazwisko;
     double saldo;
     int pesel;
+    //string numStr;
     cout << "Podaj imie: ";
     cin >> imie;
     cout << "Podaj nazwisko: ";
     cin >> nazwisko;
-    cout << "Podaj pesel: ";
-    cin >> pesel;
+    //do {
+        cout << "Podaj pesel: ";
+        cin >> pesel;
+        //cout << endl;
+        /*numStr = std::to_string(pesel);
+        cout << numStr.length();*/
+
+
+    //} while (numStr.length()!=10);
     cout << "Podaj login: ";
     cin >> login;
     cout << "Podaj haslo: ";

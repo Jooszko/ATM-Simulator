@@ -22,8 +22,12 @@ int main() {
     //database add
     DataBase dataBase;
     //sqlite3* DB;
-    /*dataBase.createDb(dir);
-    dataBase.createTable(dir);*/
+
+    /*string hash = BCrypt::generateHash("witam", 10);
+    cout << BCrypt::validatePassword("witam", hash);*/
+
+    dataBase.createDb();
+    dataBase.createTable();
 
     /*Konto_Bankowe* noweKonto = new Konto_Bankowe("login", "haslo", "12", 21, "imie", "nazwisko", 12);
 
@@ -53,7 +57,7 @@ int main() {
         switch (wybor) {
         case 1: {
             string login, haslo;
-            system("cls");
+            //system("cls");
             cout << "Podaj login: ";
             cin >> login;
             cout << "Podaj haslo: ";
@@ -167,7 +171,7 @@ int main() {
                         break;
                     }
                     }
-                } while (wybor != 6 && wybor != 5);
+                } while (wybor != 6 && wybor != 7);
             }
             else {
                 cout << "Blad: nieprawidlowe dane logowania." << endl;
