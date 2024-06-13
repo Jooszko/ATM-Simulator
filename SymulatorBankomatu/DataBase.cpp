@@ -40,7 +40,7 @@ int DataBase::createTable() {
         "BALANCE INT, "
         "IMIE TEXT NOT NULL, "
         "NAZWISKO TEXT NOT NULL, "
-        "PESEL INT NOT NULL); ";
+        "PESEL BIGINT NOT NULL); ";
 
     try {
         int exit = 0;
@@ -105,7 +105,7 @@ int DataBase::selectData() {
 
 int DataBase::callback(void* NotUsed, int argc, char** argv, char** azColName) {
 
-    Konto_Bankowe* uzytkownikBaza = new Konto_Bankowe(argv[1], argv[2], argv[3], argv[4], stod(argv[5]), argv[6], argv[7], stoi(argv[8]));
+    Konto_Bankowe* uzytkownikBaza = new Konto_Bankowe(argv[1], argv[2], argv[3], argv[4], stod(argv[5]), argv[6], argv[7], stoll(argv[8]));
 
     uzytkownicy.push_back(uzytkownikBaza);
 

@@ -135,10 +135,22 @@ int main() {
                         system("cls");
                         cout << "[BANKOMAT]" << endl << endl;
 
-                        cout << "Podaj stary PIN: ";
-                        cin >> staryPin;
-                        cout << "Podaj nowy PIN: ";
-                        cin >> nowyPin;
+                        do {
+                            cout << "Podaj stary PIN: ";
+                            cin >> staryPin;
+                            if (staryPin.length() != 4) {
+                                cout << "Blad: nieprawidlowa dlugosc numeru  PIN!" << endl;
+                            }
+                        } while (staryPin.length() != 4);
+                        
+                        do {
+                            cout << "Podaj nowy PIN: ";
+                            cin >> nowyPin;
+                            if (nowyPin.length() != 4) {
+                                cout << "Blad: nieprawidlowa dlugosc numeru  PIN!" << endl;
+                            }
+                        } while (nowyPin.length() != 4);
+
                         konto->zmienPin(staryPin, nowyPin);
                         bankomat.zapiszKontaDoPliku();
                         cout << endl << "Nacisnij dowolny klawisz, aby kontynuować..." << endl;
@@ -157,7 +169,7 @@ int main() {
                         if (decyzja == 't') {
                             bankomat.usunKonto(konto);
                             bankomat.zapiszKontaDoPliku();
-                            cout << "Usunięto konto." << endl;
+                            cout <<endl<< "Usunięto konto." << endl;
                             cout << endl << "Nacisnij dowolny klawisz, aby kontynuować..." << endl;
                             _getch();
                         }

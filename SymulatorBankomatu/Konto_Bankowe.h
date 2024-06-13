@@ -16,10 +16,10 @@ class Konto_Bankowe : public Konto {
 	    double saldo;
 		string imie;
 		string nazwisko;
-		int pesel;
+		long long pesel;
 
 	public:
-	    Konto_Bankowe(const string& login, const string& haslo, const string& salt, const string& pin, double saldo, const string& imie, const string& nazwisko, const int& pesel): Konto(login, haslo, salt), haslo(haslo), salt(salt), pin(pin), saldo(saldo), imie(imie), nazwisko(nazwisko), pesel(pesel) {}
+	    Konto_Bankowe(const string& login, const string& haslo, const string& salt, const string& pin, double saldo, const string& imie, const string& nazwisko, const long long& pesel): Konto(login, haslo, salt), haslo(haslo), salt(salt), pin(pin), saldo(saldo), imie(imie), nazwisko(nazwisko), pesel(pesel) {}
 	
 		string getPin() const;
 		string getHaslo() const;
@@ -28,7 +28,7 @@ class Konto_Bankowe : public Konto {
 		double getSaldo() const;
 		string getImie() const;
 		string getNazwisko() const;
-		int getPesel() const;
+		long long getPesel() const;
 	
 		void wplac(double kwota);
 	

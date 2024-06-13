@@ -6,17 +6,17 @@ string Konto_Bankowe::getSalt() const { return salt; }
 double Konto_Bankowe::getSaldo() const { return saldo; }
 string Konto_Bankowe::getImie() const { return imie; }
 string Konto_Bankowe::getNazwisko() const { return nazwisko; }
-int Konto_Bankowe::getPesel() const { return pesel; }
+long long Konto_Bankowe::getPesel() const { return pesel; }
 
 void Konto_Bankowe::wplac(double kwota) {
 	saldo += kwota;
-	cout << "Wp³acono " << kwota << ". Twoje saldo wynosi teraz " << saldo << "." << endl;
+	cout << "Wp³acono " << kwota << "z³. Twoje saldo wynosi teraz " << saldo << "z³." << endl;
 }
 
 bool Konto_Bankowe::wyplac(double kwota) {
 	if (kwota <= saldo) {
 		saldo -= kwota;
-		cout << "Wyp³acono " << kwota << ". Twoje saldo wynosi teraz " << saldo << "." << endl;
+		cout << "Wyp³acono " << kwota << "z³. Twoje saldo wynosi teraz " << saldo << "z³." << endl;
 		return true;
 	}
 	else {
@@ -26,7 +26,7 @@ bool Konto_Bankowe::wyplac(double kwota) {
 }
 
 double Konto_Bankowe::sprawdzSaldo() const {
-	cout << "Twoje saldo wynosi " << saldo << "." << endl;
+	cout << "Twoje saldo wynosi " << saldo << "z³." << endl;
 	return saldo;
 }
 
@@ -63,7 +63,7 @@ void Konto_Bankowe::zmienHaslo(const string& stareHaslo, const string& noweHaslo
 		}
 		else {
 			haslo = pass_hash_new_user;
-			cout << "Haslo zosta³o pomyœlnie zmienione." << endl;
+			cout <<endl<< "Haslo zosta³o pomyœlnie zmienione." << endl;
 		}
 	}
 	else {

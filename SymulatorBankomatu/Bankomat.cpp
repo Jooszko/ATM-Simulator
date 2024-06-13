@@ -38,7 +38,6 @@ bool Bankomat::czyIstnieje(const string& login) {
 }
 
 void Bankomat::utworzKonto() {
-
     string login, haslo, pin, imie, nazwisko;
     double saldo;
     long long pesel;
@@ -52,7 +51,7 @@ void Bankomat::utworzKonto() {
         cin >> pesel;
         peselStr = to_string(pesel);
         if (peselStr.length() != 11)
-           cout << "Blad: nieprawidaowa dlugosc numeru  PESEL!" << endl;
+           cout << "Blad: nieprawidlowa dlugosc numeru  PESEL!" << endl;
     } while (peselStr.length() != 11);
     cout << "Podaj login: ";
     cin >> login;
@@ -62,7 +61,7 @@ void Bankomat::utworzKonto() {
         cout << "Podaj PIN: ";
         cin >> pin;
         if (pin.length() != 4) {
-            cout << "Blad: nieprawidaowa dlugosc numeru  PIN!" << endl;
+            cout << "Blad: nieprawidlowa dlugosc numeru  PIN!" << endl;
         }
     } while (pin.length() != 4);
     cout << "Podaj saldo poczatkowe: ";
@@ -81,7 +80,7 @@ void Bankomat::utworzKonto() {
         
     }
     else {
-        cout << "Błąd: Login jest już używany." << endl;
+        cout << "Blad: Login jest już uzywany." << endl;
     }
 }
 
