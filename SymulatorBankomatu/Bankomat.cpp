@@ -1,5 +1,6 @@
 #include "Bankomat.h"
 #include "sqlite3.h"
+#include <string>
 //#include <iostream>
 //#include "DataBase.h"
 
@@ -43,19 +44,36 @@ void Bankomat::utworzKonto() {
 
     string login, haslo, pin, imie, nazwisko;
     double saldo;
-    int pesel;
+    long long pesel;
+    string peselStr;
+    //string numStr;
     cout << "Podaj imie: ";
     cin >> imie;
     cout << "Podaj nazwisko: ";
     cin >> nazwisko;
-    cout << "Podaj pesel: ";
-    cin >> pesel;
+    //do {
+    do {
+        cout << "Podaj pesel: ";
+        cin >> pesel;
+        peselStr = to_string(pesel);
+        if (peselStr.length() != 11)
+           cout << "Blad: nieprawidaowa dlugosc numeru  PESEL!" << endl;
+    } while (peselStr.length() != 11);
+        //cout << endl;
+        /*numStr = std::to_string(pesel);
+        cout << numStr.length();*/
+    //} while (numStr.length()!=10);
     cout << "Podaj login: ";
     cin >> login;
     cout << "Podaj haslo: ";
     cin >> haslo;
-    cout << "Podaj PIN: ";
-    cin >> pin;
+    do {
+        cout << "Podaj PIN: ";
+        cin >> pin;
+        if (pin.length() != 4) {
+            cout << "Blad: nieprawidaowa dlugosc numeru  PIN!" << endl;
+        }
+    } while (pin.length() != 4);
     cout << "Podaj saldo poczatkowe: ";
     cin >> saldo;
 

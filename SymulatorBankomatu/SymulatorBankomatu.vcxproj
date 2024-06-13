@@ -127,12 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Downloads\sqlite3.c" />
     <ClCompile Include="Bankomat.cpp" />
     <ClCompile Include="DataBase.cpp" />
     <ClCompile Include="Hash.cpp" />
     <ClCompile Include="Konto.cpp" />
     <ClCompile Include="Konto_Bankowe.cpp" />
+    <ClCompile Include="sqlite3.c" />
     <ClCompile Include="SymulatorBankomatu.cpp" />
   </ItemGroup>
   <ItemGroup>
