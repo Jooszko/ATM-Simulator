@@ -80,7 +80,7 @@ void Bankomat::utworzKonto() {
         
     }
     else {
-        cout << "Blad: Login jest już uzywany." << endl;
+        cout << "Blad: Login jest juz uzywany." << endl;
     }
 }
 

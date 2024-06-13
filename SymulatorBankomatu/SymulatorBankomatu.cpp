@@ -33,8 +33,8 @@ int main() {
         cout << "[BANKOMAT]" << endl << endl;
 
         cout << "1. Zaloguj\n";
-        cout << "2. Utwórz konto\n";
-        cout << "3. Zakończ program\n\n";
+        cout << "2. Utworz konto\n";
+        cout << "3. Zakoncz program\n\n";
         cout << "Wybierz opcje: ";
         cin >> wybor;
 
@@ -57,7 +57,7 @@ int main() {
             if (konto) {
                 cout <<endl<< "Zalogowano!"<<endl<<endl;
 
-                cout << "Nacisnij dowolny klawisz, aby kontynuować..." << endl;
+                cout << "Nacisnij dowolny klawisz, aby kontynuowac..." << endl;
                 _getch();
                 int wybor;
                 do {
@@ -65,14 +65,14 @@ int main() {
                     cout << "[BANKOMAT]" << endl << endl;
 
                     cout << "Witaj " << konto->getImie() << " " << konto->getNazwisko()<<endl << endl;
-                    cout << "1. Wplać pieniadze\n";
-                    cout << "2. Wyplać pieniadze\n";
-                    cout << "3. Sprawdź saldo\n";
-                    cout << "4. Zmień Haslo\n";
-                    cout << "5. Zmień PIN\n";
-                    cout << "6. Usuń konto\n";
+                    cout << "1. Wplac pieniadze\n";
+                    cout << "2. Wyplac pieniadze\n";
+                    cout << "3. Sprawdz saldo\n";
+                    cout << "4. Zmien Haslo\n";
+                    cout << "5. Zmien PIN\n";
+                    cout << "6. Usun konto\n";
                     cout << "7. Wyloguj\n";
-                    cout << "8. Zakończ program\n\n";
+                    cout << "8. Zakoncz program\n\n";
                     cout << "Wybierz opcje: ";
                     cin >> wybor;
 
@@ -87,7 +87,7 @@ int main() {
                         system("cls");
                         konto->wplac(kwota);
                         bankomat.zapiszKontaDoPliku();
-                        cout <<endl<< "Nacisnij dowolny klawisz, aby kontynuować..." << endl;
+                        cout <<endl<< "Nacisnij dowolny klawisz, aby kontynuowac..." << endl;
                         _getch();
                         break;
                     }
@@ -109,7 +109,7 @@ int main() {
                         cout << "[BANKOMAT]" << endl << endl;
 
                         konto->sprawdzSaldo();
-                        cout << endl << "Nacisnij dowolny klawisz, aby kontynuować..." << endl;
+                        cout << endl << "Nacisnij dowolny klawisz, aby kontynuowac..." << endl;
                         _getch();
                         break;
                     }
@@ -118,15 +118,15 @@ int main() {
                         system("cls");
                         cout << "[BANKOMAT]" << endl << endl;
 
-                        cout << "Podaj stare hasło: ";
+                        cout << "Podaj stare haslo: ";
                         cin >> stareHaslo;
-                        cout << "Podaj nowe hasło: ";
+                        cout << "Podaj nowe haslo: ";
                         cin >> noweHaslo;
 
                         konto->zmienHaslo(stareHaslo, noweHaslo);
                         konto->setHaslo(konto->getHaslo());
                         bankomat.zapiszKontaDoPliku();
-                        cout << endl << "Nacisnij dowolny klawisz, aby kontynuować..." << endl;
+                        cout << endl << "Nacisnij dowolny klawisz, aby kontynuowac..." << endl;
                         _getch();
                         break;
                     }
@@ -139,7 +139,7 @@ int main() {
                             cout << "Podaj stary PIN: ";
                             cin >> staryPin;
                             if (staryPin.length() != 4) {
-                                cout << "Blad: nieprawidlowa dlugosc numeru  PIN!" << endl;
+                                cout << "Blad: nieprawidlowa dlugosc numeru PIN!" << endl;
                             }
                         } while (staryPin.length() != 4);
                         
@@ -147,13 +147,13 @@ int main() {
                             cout << "Podaj nowy PIN: ";
                             cin >> nowyPin;
                             if (nowyPin.length() != 4) {
-                                cout << "Blad: nieprawidlowa dlugosc numeru  PIN!" << endl;
+                                cout << "Blad: nieprawidlowa dlugosc numeru PIN!" << endl;
                             }
                         } while (nowyPin.length() != 4);
 
                         konto->zmienPin(staryPin, nowyPin);
                         bankomat.zapiszKontaDoPliku();
-                        cout << endl << "Nacisnij dowolny klawisz, aby kontynuować..." << endl;
+                        cout << endl << "Nacisnij dowolny klawisz, aby kontynuowac..." << endl;
                         _getch();
                         break;
                     }
@@ -163,14 +163,14 @@ int main() {
                             system("cls");
                             cout << "[BANKOMAT]" << endl << endl;
 
-                            cout << "Czy na pewno chcesz usunąć konto? (t/n): ";
+                            cout << "Czy na pewno chcesz usunac konto? (t/n): ";
                             cin >> decyzja;
                         } while (decyzja!='t' && decyzja!='n');
                         if (decyzja == 't') {
                             bankomat.usunKonto(konto);
                             bankomat.zapiszKontaDoPliku();
-                            cout <<endl<< "Usunięto konto." << endl;
-                            cout << endl << "Nacisnij dowolny klawisz, aby kontynuować..." << endl;
+                            cout <<endl<< "Usunieto konto." << endl;
+                            cout << endl << "Nacisnij dowolny klawisz, aby kontynuowac..." << endl;
                             _getch();
                         }
                    
@@ -181,7 +181,7 @@ int main() {
                         cout << "[BANKOMAT]" << endl << endl;
 
                         cout << "Wylogowano." << endl;
-                        cout << endl << "Nacisnij dowolny klawisz, aby kontynuować..." << endl;
+                        cout << endl << "Nacisnij dowolny klawisz, aby kontynuowac..." << endl;
                         _getch();
                         break;
                     }
@@ -195,7 +195,7 @@ int main() {
                         cout << "[BANKOMAT]" << endl << endl;
 
                         cout << "Nieznana opcja." << endl << endl;
-                        cout << "Nacisnij dowolny klawisz, aby kontynuować..." << endl;
+                        cout << "Nacisnij dowolny klawisz, aby kontynuowac..." << endl;
                         _getch();
                         break;
                     }
@@ -203,9 +203,9 @@ int main() {
                 } while (wybor != 6 && wybor != 7);
             }
             else {
-                cout <<endl<< "Bład: nieprawidłowe dane logowania." << endl<<endl;
+                cout <<endl<< "Blad: nieprawidlowe dane logowania." << endl<<endl;
 
-                cout << "Naciśnij dowolny klawisz, aby kontynuować..." << endl;
+                cout << "Nacisnij dowolny klawisz, aby kontynuowac..." << endl;
                 _getch();
             }
             break;
@@ -215,7 +215,7 @@ int main() {
             cout << "[BANKOMAT]" << endl << endl;
 
             bankomat.utworzKonto();
-            cout <<endl<< "Naciśnij dowolny klawisz, aby kontynuować..." << endl;
+            cout <<endl<< "Nacisnij dowolny klawisz, aby kontynuowac..." << endl;
             _getch();
             break;
         }

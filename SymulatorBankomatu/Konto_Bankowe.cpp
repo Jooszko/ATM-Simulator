@@ -10,38 +10,38 @@ long long Konto_Bankowe::getPesel() const { return pesel; }
 
 void Konto_Bankowe::wplac(double kwota) {
 	saldo += kwota;
-	cout << "Wp³acono " << kwota << "z³. Twoje saldo wynosi teraz " << saldo << "z³." << endl;
+	cout << "Wplacono " << kwota << "zl. Twoje saldo wynosi teraz " << saldo << "zl." << endl;
 }
 
 bool Konto_Bankowe::wyplac(double kwota) {
 	if (kwota <= saldo) {
 		saldo -= kwota;
-		cout << "Wyp³acono " << kwota << "z³. Twoje saldo wynosi teraz " << saldo << "z³." << endl;
+		cout << "Wyplacono " << kwota << "zl. Twoje saldo wynosi teraz " << saldo << "zl." << endl;
 		return true;
 	}
 	else {
-		cout << "B³¹d: niewystarczaj¹ce œrodki na koncie." << endl;
+		cout << "Blad: niewystarczajace srodki na koncie." << endl;
 		return false;
 	}
 }
 
 double Konto_Bankowe::sprawdzSaldo() const {
-	cout << "Twoje saldo wynosi " << saldo << "z³." << endl;
+	cout << "Twoje saldo wynosi " << saldo << "zl." << endl;
 	return saldo;
 }
 
 void Konto_Bankowe::zmienPin(const string& staryPin, const string& nowyPin) {
 	if (staryPin == pin) {
 		if (staryPin == nowyPin) {
-			cout << "B³¹d: nowy PIN nie mo¿e byæ taki sam jak stary PIN." << endl;
+			cout << "Blad: nowy PIN nie moze byc taki sam jak stary PIN." << endl;
 		}
 		else {
 			pin = nowyPin;
-			cout << "PIN zosta³ pomyœlnie zmieniony." << endl;
+			cout << "PIN zostal pomyslnie zmieniony." << endl;
 		}
 	}
 	else {
-		cout << "B³¹d: podano nieprawid³owy stary PIN." << endl;
+		cout << "Blad: podano nieprawidlowy stary PIN." << endl;
 	}
 }
 
@@ -59,14 +59,14 @@ void Konto_Bankowe::zmienHaslo(const string& stareHaslo, const string& noweHaslo
 		string pass_hash_new_user = Hash::generateHash(noweHaslo, this->salt);
 
 		if (haslo == pass_hash_new_user) {
-			cout << "B³¹d: nowe has³o nie mo¿e byæ takie same jak stare has³o." << endl;
+			cout << "Blad: nowe haslo nie moze byc takie same jak stare haslo." << endl;
 		}
 		else {
 			haslo = pass_hash_new_user;
-			cout <<endl<< "Haslo zosta³o pomyœlnie zmienione." << endl;
+			cout <<endl<< "Haslo zostalo pomyslnie zmienione." << endl;
 		}
 	}
 	else {
-		cout << "B³¹d: podano nieprawid³owe stare has³o." << endl;
+		cout << "Blad: podano nieprawidlowe stare haslo." << endl;
 	}
 }
